@@ -1,6 +1,14 @@
 version: '3.8'
 
 services:
+  app:
+    build:
+      context: ./authorization-flow
+      dockerfile: .docker/Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - keycloak-network
   keycloak:
     image: quay.io/keycloak/keycloak:21.1
     ports:
