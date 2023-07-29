@@ -6,9 +6,13 @@ services:
       context: ./authorization-flow
       dockerfile: .docker/Dockerfile
     ports:
-      - 3000:3000
+      - 3001:3001
     networks:
       - keycloak-network
+    volumes:
+      - ./authorization-flow:/app
+    env_file:
+      - .env
   keycloak:
     image: quay.io/keycloak/keycloak:21.1
     ports:
